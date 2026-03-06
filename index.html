@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEDUC URE-CAIEIRAS · Documentos Orientadores 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f4f7fc;
+            color: #212121;
+            line-height: 1.5;
+        }
+
+        :root {
+            --azul-profundo: #0a2f6c;
+            --vermelho-destaque: #d32f2f;
+            --preto-texto: #212121;
+            --cinza-fundo: #f5f7fa;
+            --branco-card: #ffffff;
+            --cinza-borda: #e0e4e9;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        header {
+            background-color: var(--azul-profundo);
+            color: white;
+            padding: 0.6rem 0;
+            border-bottom: 4px solid var(--vermelho-destaque);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .logo img {
+            max-height: 58px;
+            width: auto;
+            display: block;
+            border-radius: 8px;
+            background: white;
+            padding: 4px;
+        }
+
+        .titulo-header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .titulo-header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .tab-bar {
+            background-color: white;
+            border-bottom: 2px solid var(--cinza-borda);
+            padding: 0.5rem 2rem 0 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            position: sticky;
+            top: 86px;
+            z-index: 15;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #555;
+            cursor: pointer;
+            border-radius: 30px 30px 0 0;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+        }
+
+        .tab-button.active {
+            color: var(--azul-profundo);
+            border-bottom: 3px solid var(--vermelho-destaque);
+            background: #f0f4fa;
+        }
+
+        .tab-button:hover {
+            background: #eef3fb;
+            color: var(--azul-profundo);
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active-pane {
+            display: block;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--vermelho-destaque);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.8rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--azul-profundo);
+            border-left: 6px solid var(--vermelho-destaque);
+            padding-left: 1rem;
+            margin: 2rem 0 1.2rem 0;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--preto-texto);
+            margin: 1.5rem 0 0.8rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .card {
+            background: var(--branco-card);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.08);
+            border: 1px solid var(--cinza-borda);
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--azul-profundo);
+        }
+
+        .card-vermelho {
+            border-top: 5px solid var(--vermelho-destaque);
+        }
+
+        .card-azul {
+            border-top: 5px solid var(--azul-profundo);
+        }
+
+        .lista-destaque {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .lista-destaque li {
+            padding: 0.6rem 0 0.6rem 1.8rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="%23d32f2f"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>') left center no-repeat;
+            background-size: 18px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            font-size: 0.95rem;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        th {
+            background-color: var(--azul-profundo);
+            color: white;
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+            border-radius: 16px;
+        }
+
+        .link-documento {
+            color: var(--vermelho-destaque);
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .link-documento:hover {
+            border-bottom-color: var(--vermelho-destaque);
+        }
+
+        .checklist {
+            background: #f0f4fa;
+            padding: 1.5rem;
+            border-radius: 24px;
+            border-left: 8px solid var(--azul-profundo);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+
+        .checklist-item span {
+            background: white;
+            border-radius: 30px;
+            padding: 0.3rem 1.2rem;
+            border: 1px solid var(--azul-profundo);
+            color: var(--azul-profundo);
+            font-weight: 600;
+        }
+
+        .callout {
+            background: #fff1f0;
+            border-left: 5px solid var(--vermelho-destaque);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .btn-link {
+            background: var(--vermelho-destaque);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.8rem;
+            border: 2px solid transparent;
+        }
+
+        .btn-link:hover {
+            background: white;
+            color: var(--vermelho-destaque);
+            border-color: var(--vermelho-destaque);
+        }
+
+        footer {
+            background-color: var(--preto-texto);
+            color: #ccc;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--vermelho-destaque);
+        }
+
+        .destaque-numero {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--azul-profundo);
+            line-height: 1;
+        }
+
+        @media (max-width: 700px) {
+            .container { padding: 1rem; }
+            .header-flex { flex-direction: column; align-items: start; }
+            h2 { font-size: 1.5rem; }
+            .tab-bar { top: 118px; padding: 0.5rem 1rem 0; }
+            .tab-button { padding: 0.6rem 1rem; }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <img src="https://i.ibb.co/0p01LzxB/logo3de.jpg" alt="logo orientação de estudos">
+        </div>
+        <div class="titulo-header">
+            <h1>URE-CAIEIRAS · 2026</h1>
+            <p>Orientação de Estudos · Aluno Monitor · Copa da Escola · Tarefa SP</p>
+        </div>
+    </div>
+</header>
+
+<!-- Abas de navegação (agora com 4) -->
+<div class="tab-bar">
+    <button class="tab-button active" data-tab="oe">📘 OE 2026</button>
+    <button class="tab-button" data-tab="monitor">🎓 Aluno Monitor</button>
+    <button class="tab-button" data-tab="copa">🏆 Copa da Escola</button>
+    <button class="tab-button" data-tab="tarefa">📝 Tarefa SP 2026</button>
+</div>
+
+<main class="container">
+
+    <!-- ========== TAB ORIENTAÇÃO DE ESTUDOS (idêntica) ========= -->
+    <div id="tab-oe" class="tab-pane active-pane">
+        <div class="badge">Documento orientador · Janeiro 2026</div>
+        <p style="font-size: 1.2rem; margin: 1.2rem 0 0 0; background: white; padding: 1.5rem; border-radius: 20px; border: 1px solid var(--cinza-borda);">
+            Este documento reúne as orientações para a implementação do componente curricular <strong>Orientação de Estudos</strong> em 2026. 
+            <span style="display: block; margin-top: 0.8rem; font-size: 0.95rem; color: var(--azul-profundo);">📓 <a href="https://drive.google.com/file/d/1zFSQpBpI-cdWVzXAfeDk5ExKsQyEHrm3/view?usp=drive_link" class="link-documento">seduc.sp.gov.br/oe2026</a></em></span>
+        </p>
+
+        <h2>⸻ Elementos‑chave 2026</h2>
+        <div class="card-grid">
+            <div class="card card-vermelho"><span class="destaque-numero">1</span><h3>Recomposição</h3><p>LP e Matemática em todas as séries dos Anos Finais e EM nas PEI; parciais: 6º, 9º e 3ª série.</p></div>
+            <div class="card card-vermelho"><span class="destaque-numero">2</span><h3>Material SP em Ação</h3><p>16 capítulos, progressão por níveis SAEB (até nível 6). Livro específico para cada ciclo.</p></div>
+            <div class="card card-vermelho"><span class="destaque-numero">3</span><h3>Nivelamento + Ritmo</h3><p>Agrupamentos produtivos, pontos de entrada flexíveis.</p></div>
+            <div class="card card-vermelho"><span class="destaque-numero">4</span><h3>Avaliações formativas</h3><p>Diagnóstica (duas/ano), tarefas por capítulo e bimestrais.</p></div>
+        </div>
+
+        <h2>⸻ Carga horária (aulas semanais)</h2>
+        <div class="table-responsive">
+            <table><thead><tr><th>Série</th><th>Parcial</th><th>PEI 7h</th><th>PEI 9h</th></tr></thead>
+            <tbody>
+                <tr><td>6º ano EF</td><td>2</td><td>2</td><td>2</td></tr>
+                <tr><td>7º e 8º ano EF</td><td>—</td><td>1</td><td>1</td></tr>
+                <tr><td>9º ano EF</td><td>2</td><td>2</td><td>2</td></tr>
+                <tr><td>1ª e 2ª série EM</td><td>—</td><td>1</td><td>1</td></tr>
+                <tr><td>3ª série EM</td><td>2</td><td>2</td><td>3</td></tr>
+            </tbody></table>
+        </div>
+        <p class="link-documento">🔁 Recomendação: aulas dobradinha para 6º, 9º EF e 3ª EM.</p>
+
+        <h3>👥 Atribuição de professores</h3>
+        <div class="card" style="background: #eef3fb;"><p>Priorizar docentes com experiência em recomposição, perfil para turmas heterogêneas e agrupamentos por nível.</p></div>
+
+        <h2>⸻ Coleção SP em Ação</h2>
+        <div class="card-grid">
+            <div class="card card-azul"><h3>📚 Distribuição</h3><table><tr><th>Série</th><th>Livro</th></tr><tr><td>6º e 7º EF</td><td>Livro 1 – Anos Iniciais</td></tr><tr><td>8º,9º EF e 1ª EM</td><td>Livro 2 – Anos Finais</td></tr><tr><td>2ª e 3ª EM</td><td>Livro 3 – Ensino Médio</td></tr></table></div>
+            <div class="card card-azul"><h3>📐 Estrutura</h3><ul class="lista-destaque"><li>Etapa 1: conceituais</li><li>Etapa 2: ampliação</li><li>Etapa 3: SAEB/SARESP</li><li>Etapa 4: prática textual/desafios</li></ul></div>
+        </div>
+
+        <h3>📈 Níveis SAEB por capítulo</h3>
+        <div class="table-responsive"><table><tr><th>Capítulos</th><th>Níveis SAEB</th></tr><tr><td>1 a 4</td><td>Níveis 1 e 2</td></tr><tr><td>5 a 8</td><td>Nível 3</td></tr><tr><td>9 a 12</td><td>Nível 4</td></tr><tr><td>13 a 16</td><td>Níveis 5 e 6</td></tr></table></div>
+
+        <div class="callout"><p><strong>✧ Exemplo – LP (Anos Finais)</strong><br>Objetivo N4.9 – Inferir efeito de pontuação/polissemia. <br>BNCC: EF69LP05 · SAEB: LP9LEAN07</p></div>
+
+        <h2>⸻ Respeitando o ritmo</h2>
+        <div class="card-grid">
+            <div class="card"><h3>✅ Organização</h3><ul class="lista-destaque"><li>Agrupamentos por diagnóstico</li><li>Mediação ativa</li><li>Não avançar sem consolidar</li></ul></div>
+            <div class="card"><h3>🔄 Pontos de entrada</h3><p><strong>6º,9º,3ª:</strong> cap.1<br><strong>Demais PEI:</strong> caps. 1,5 ou 9 conforme nível.</p></div>
+        </div>
+
+        <h3>📋 Checklist coordenação</h3>
+        <div class="checklist">
+            <div class="checklist-item"><span>✔</span> Usou a diagnóstica para organizar turmas?</div>
+            <div class="checklist-item"><span>✔</span> Ponto de entrada definido?</div>
+            <div class="checklist-item"><span>✔</span> Rotinas de mediação por níveis?</div>
+            <div class="checklist-item"><span>✔</span> Acompanhamento das formativas?</div>
+        </div>
+
+        <h2>⸻ Avaliação</h2>
+        <div class="card-grid">
+            <div class="card card-vermelho"><h3>🔍 Diagnóstica</h3><p>Duas vezes/ano, digital. <a href="https://docs.google.com/document/d/1piMaMQQwgty6wAGSA5TaDQ9N4QTsV9cCRMpgwWyE9cQ/edit?usp=drive_link" class="link-documento">Acesse Documento</a></p></div>
+            <div class="card card-vermelho"><h3>📘 Tarefas formativas</h3><p>8 questões por capítulo, publicadas pelo professor.</p></div>
+            <div class="card card-vermelho"><h3>📅 Bimestral</h3><p>Arquivos a cada 4 capítulos, uso flexível.</p></div>
+        </div>
+
+        <h3>📝 Atribuição de notas</h3>
+        <p>Engajamento + desempenho nas tarefas + bimestral.</p>
+
+        <h2>⸻ Formação continuada</h2>
+        <div class="table-responsive"><table><tr><th>Atores</th><th>Ferramentas</th></tr><tr><td>Coordenação</td><td>Formação com PECs e Lives</td></tr><tr><td>Professores OE</td><td>PDA, Multiplica OE, ATPC conjunta</td></tr></table></div>
+        <p class="link-documento">📌 ATPC de LP/LP OE e MT/MT OE no mesmo horário.</p>
+
+        <div style="margin: 2rem 0; display: flex; gap: 1.5rem; flex-wrap: wrap; border-top: 2px dashed var(--cinza-borda); padding-top: 2rem;">
+            <span class="badge" style="background: var(--azul-profundo);">links do documento</span>
+            <a href="https://drive.google.com/file/d/1tqI5fO2kjFD1Bxxj0cUuKS-in_nMG5Yf/view?usp=drive_link" class="link-documento">📘 Documento Orientador da Diagnóstica</a>
+            <a href="#" class="link-documento">📁 em breve > Matriz SAEB e SARESP</a>
+            <a href="#" class="link-documento">🔗 em breve > Currículo Paulista</a>
+        </div>
+    </div>
+
+    <!-- ========== TAB ALUNO MONITOR ========= -->
+    <div id="tab-monitor" class="tab-pane">
+        <div class="badge" style="background: var(--azul-profundo);">Documento orientador · janeiro 2026</div>
+        <p style="font-size: 1.2rem; margin: 1.2rem 0 0 0; background: white; padding: 1.5rem; border-radius: 20px; border: 1px solid var(--cinza-borda);">
+            <strong>Projeto Aluno Monitor do BEEM</strong> – monitoria entre pares em Língua Portuguesa e Matemática para fortalecimento das aprendizagens e protagonismo juvenil.
+            <span style="display: block; margin-top: 0.8rem; font-size: 0.95rem; color: var(--azul-profundo);">👩🏽‍🎓 <a href="https://drive.google.com/file/d/1xlmlWpptdXQODG1zsIdX3qykWmOpVI6I/view?usp=drive_link" class="link-documento">seduc.sp.gov.br/alunomonitor</a></span>
+        </p>
+
+        <h2>⸻ Objetivos e atuação</h2>
+        <div class="card-grid">
+            <div class="card card-azul"><h3>🎯 Finalidade</h3><p>Apoiar estudantes com defasagens em LP e Matemática, integrado às aulas de Orientação de Estudos e Formação Geral.</p></div>
+            <div class="card card-azul"><h3>🤝 Benefícios</h3><p>Monitor consolida aprendizagens; monitorado recebe acompanhamento próximo; clima colaborativo.</p></div>
+        </div>
+
+        <h2>⸻ Carga horária e modalidades</h2>
+        <div class="table-responsive">
+            <table><tr><th>Modalidade</th><th>Horas semanais</th><th>Monitorados (mín/máx)</th></tr>
+            <tr><td>8h</td><td>8h (75% monitoria + 25% formação)</td><td>10 a 15 estudantes</td></tr>
+            <tr><td>16h</td><td>16h (75% monitoria + 25% formação)</td><td>20 a 30 estudantes</td></tr>
+        </table></div>
+        <p><strong>Escolas PEI 9h e exclusivamente EM:</strong> apenas 8h. Demais podem optar por 8h ou 16h.</p>
+
+        <h2>⸻ Processo seletivo (SED)</h2>
+        <div class="card-grid">
+            <div class="card"><h3>📅 Etapas (09/02 a 06/03)</h3>
+                <ul class="lista-destaque"><li>Inscrição do estudante na SED</li><li>Classificação automática (frequência ≥85% + 20% melhores no SARESP/Provão)</li><li>Entrevista (rubrica anexo 3)</li><li>Aprovação pelo coordenador</li><li>Alocação dos monitorados</li></ul>
+            </div>
+            <div class="card"><h3>📊 Critérios</h3>
+                <p><strong>Frequência 2025 ≥85%</strong> (alunos de rede municipal terão frequência verificada na entrevista).<br>
+                <strong>Nota:</strong> 1ª série EM → SARESP 9º ano; 2ª/3ª → Provão Paulista.</p>
+            </div>
+        </div>
+
+        <h3>👥 Quem pode ser monitor?</h3>
+        <p>Estudantes da 1ª, 2ª ou 3ª série do EM. Podem atender:</p>
+        <ul class="lista-destaque">
+            <li>Monitor 3ª série → 3ª,2ª,1ª EM, 9º e 6º EF</li>
+            <li>Monitor 2ª série → 2ª,1ª EM, 9º e 6º EF</li>
+            <li>Monitor 1ª série → 1ª EM, 9º e 6º EF</li>
+        </ul>
+
+        <h2>⸻ Definição dos monitorados</h2>
+        <div class="callout">
+            <p><strong>Prioridade:</strong> estudantes classificados no nível <strong>Básico</strong> (defasagem até dois anos) na Avaliação Diagnóstica ou Painel SARESP.<br>
+            Abaixo do Básico → Professor Tutor. Proficientes → podem ser monitores.</p>
+        </div>
+
+        <h2>⸻ Formação Multiplica</h2>
+        <div class="card"><p>Encontros on-line semanais de 1h30, por componente (LP / MAT), com Professor Multiplicador. Revisão dos livros SP em Ação.<br>
+        <strong>Frequência obrigatória:</strong> permitida 1 falta por mês (proporcional).</p></div>
+
+        <h2>⸻ Bolsas 2026</h2>
+        <div class="table-responsive">
+            <table><tr><th>Carga</th><th>Valor mensal</th></tr>
+            <tr><td>8h semanais</td><td>R$ 307,36</td></tr>
+            <tr><td>16h semanais</td><td>R$ 576,30</td></tr>
+        </table></div>
+        <p>Condições: monitoria + formação (frequência) + relatório mensal aprovado.</p>
+
+        <h2>⸻ Papel da comunidade</h2>
+        <div class="card-grid">
+            <div class="card"><h3>📋 Coordenador</h3><ul><li>Divulgar, entrevistar, aprovar na SED</li><li>Alocar monitorados por evidências</li><li>Acompanhar frequência no Multiplica</li></ul></div>
+            <div class="card"><h3>👩‍🏫 Professor</h3><ul><li>Orientar pedagogicamente o monitor</li><li>Definir atividades prioritárias</li><li>Integrar à recomposição</li></ul></div>
+            <div class="card"><h3>🧑‍🎓 Aluno Monitor</h3><ul><li>Cumprir carga horária</li><li>Participar do Multiplica</li><li>Apoiar monitorados e preencher relatório</li></ul></div>
+        </div>
+
+        <h3>✅ Checklist da escola</h3>
+        <div class="checklist">
+            <div class="checklist-item"><span>☐</span> Divulgar projeto até 06/03</div>
+            <div class="checklist-item"><span>☐</span> Entrevistas e aprovação na SED (23/02 a 06/03)</div>
+            <div class="checklist-item"><span>☐</span> Alocar monitorados com base na Diagnóstica</div>
+            <div class="checklist-item"><span>☐</span> Registrar horário do Multiplica</div>
+            <div class="checklist-item"><span>☐</span> Acompanhar frequência e aprovar relatório mensal</div>
+        </div>
+        <p class="link-documento" style="margin-top:1rem;">📎 <a href="https://drive.google.com/file/d/1H9gXqF95mBSMtTnGXY3nev1ydfDpUH-C/view?usp=sharing" class="link-documento">Anexo 3 – Rubrica entrevista</a> | <a href="#" class="link-documento">breve > SED – Aluno Monitor</a></p>
+    </div>
+
+    <!-- ========== TAB COPA DA ESCOLA ========= -->
+    <div id="tab-copa" class="tab-pane">
+        <div class="badge">Regulamento · fevereiro 2026</div>
+        <p style="font-size: 1.2rem; margin: 1.2rem 0 0 0; background: white; padding: 1.5rem; border-radius: 20px; border: 1px solid var(--cinza-borda);">
+            <strong>Copa da Escola</strong> – competição de engajamento via Tarefa SP e frequência, com temática da Copa do Mundo. Turmas de 6º EF a 3ª EM.
+            <span style="display: block; margin-top: 0.8rem; font-size: 0.95rem; color: var(--azul-profundo);">⚽ <a href="https://drive.google.com/file/d/1tMydaEW-4gD7cfavbUVBj-2tzSHhNYy7/view?usp=drive_link" class="link-documento">seduc.sp.gov.br/copaescola</a></span>
+        </p>
+
+        <h2>⸻ Fases e calendário</h2>
+        <div class="card-grid">
+            <div class="card"><h3>🔹 Classificatória</h3>23/02 a 06/03 – define capitães e ordem de escolha das seleções.</div>
+            <div class="card"><h3>🔹 Fase de grupos</h3>16/03 a 15/05 (4 rodadas de 2 semanas).</div>
+            <div class="card"><h3>🔹 Eliminatória</h3>19/05 a 10/06; resultado final 12/06.</div>
+        </div>
+        <details style="margin:1rem 0; background:white; padding:1rem; border-radius:16px;">
+            <summary style="font-weight:600; color:var(--azul-profundo); cursor:pointer;">📅 Ver calendário completo</summary>
+            <p><strong>Classificatória:</strong> 23/02 início; 02/03 ordem seleções; 06/03 última tarefa.<br>
+            <strong>Grupos:</strong> Rodada1 (16-27/03), R2 (30/03-10/04), R3 (20/04-01/05), R4 (04-15/05).<br>
+            <strong>Finais:</strong> Oitavas (19-21/05), Quartas (26-28/05), Semifinal (08/06), Final (10/06).</p>
+        </details>
+
+        <h2>⸻ Pontuação (0 a 9 por rodada)</h2>
+        <div class="table-responsive">
+            <table><tr><th>Indicador</th><th>Faixas e pontos</th></tr>
+            <tr><td>Frequência da turma</td><td>>90% = 3 | 80-89,9% = 2 | 70-79,9% = 1 | <70% = 0</td></tr>
+            <tr><td>% tarefas realizadas</td><td>mesma regra</td></tr>
+            <tr><td>% acertos (médio)</td><td>mesma regra</td></tr>
+        </table></div>
+        <p><strong>Exemplo:</strong> 60% tarefas = 0 ponto; 90% acertos = 3 pontos → total 3 + pontos de frequência.</p>
+
+        <h3>⚖️ Critérios de desempate</h3>
+        <div class="card"><p><strong>1º</strong> maior % tarefas realizadas<br><strong>2º</strong> maior % frequência<br><strong>3º</strong> maior % acertos<br>Persistindo: ordem crescente da turma (6º,7º...), depois ordem alfabética do aluno.</p></div>
+
+        <h2>⸻ Formação dos grupos</h2>
+        <p>Por ano/série; se menos de 4 turmas, agrupamento:</p>
+        <div class="table-responsive"><table><tr><th>Série</th><th>Agrupa com</th></tr>
+        <tr><td>6º</td><td>7º</td></tr><tr><td>7º</td><td>8º</td></tr><tr><td>8º</td><td>9º</td></tr><tr><td>9º</td><td>1ª EM</td></tr><tr><td>1ª EM</td><td>2ª EM</td></tr><tr><td>2ª EM</td><td>3ª EM</td></tr><tr><td>3ª EM</td><td>2ª EM (quando necessário)</td></tr>
+        </table></div>
+        <p>Máximo 8 grupos; classificam-se 2 por grupo para oitavas (16 turmas).</p>
+
+        <h2>⸻ Seleções e escolha</h2>
+        <p>Capitão (indicado pelo trio gestor) define ordem de preferência entre 67 países. Atribuição por ordem de classificação na fase classificatória. Cada escola tem seleções únicas.</p>
+        <div class="card" style="max-height:150px; overflow-y:auto;">
+            <p><strong>Países disponíveis:</strong> África do Sul, Albânia, Alemanha, Arábia Saudita, Argélia, Argentina, Austrália, Áustria, Bélgica, Bolívia, Brasil, Cabo Verde, Canadá, Catar, Colômbia, Coreia do Sul, Costa do Marfim, Costa Rica, Croácia, Cuba, Curaçao, Dinamarca, Equador, Egito, Escócia, Eslováquia, Espanha, Estados Unidos, França, Gana, Haiti, Holanda, Honduras, Hungria, Inglaterra, Irã, Iraque, Irlanda, Irlanda do Norte, Islândia, Itália, Jamaica, Japão, Jordânia, Kosovo, Macedônia do Norte, Marrocos, México, Nigéria, Noruega, Nova Caledônia, Nova Zelândia, Panamá, Paraguai, Polônia, Portugal, RD Congo, República Tcheca, Romênia, Senegal, Suécia, Suíça, Suriname, Tunísia, Turquia, Ucrânia, Uruguai, Uzbequistão, País de Gales.</p>
+        </div>
+
+        <h2>⸻ Craques da rodada</h2>
+        <ul class="lista-destaque">
+            <li><strong>Craque:</strong> estudante com melhor pontuação da escola.</li>
+            <li><strong>Técnico:</strong> docente da turma com melhor pontuação.</li>
+            <li><strong>Seleção da rodada:</strong> 11 estudantes com melhores pontuações (campinho).</li>
+        </ul>
+
+        <h2>⸻ VAR (canal de irregularidades)</h2>
+        <p>Na Sala do Futuro, para denúncias de scripts, IA, plágio, condutas inadequadas, erros em tarefas.</p>
+
+        <h2>⸻ Premiação</h2>
+        <div class="callout" style="background: #e6f0fa;">
+            <p><strong>🏆 Turma campeã da escola:</strong> R$ 2.000,00 via PDDE para a unidade escolar, gerido pela URE/escola conforme normas do programa.</p>
+        </div>
+
+        <h3>📱 Recursos interativos</h3>
+        <p>Flyers, molduras, álbum de figurinhas, stories, apresentação Canva e live de abertura em 23/02 às 10h.</p>
+
+        <div style="margin: 2rem 0; border-top: 2px dashed var(--cinza-borda); padding-top: 2rem;">
+            <span class="badge" style="background: var(--azul-profundo);">links do regulamento</span>
+            <a href="#" class="link-documento">📋 Painel Aluno Presente</a>
+            <a href="#" class="link-documento">📊 Relatório Tarefa SP (Power BI)</a>
+            <a href="#" class="link-documento">📁 Material de divulgação (repositório)</a>
+        </div>
+    </div>
+
+    <!-- ========== NOVA TAB TAREFA SP 2026 ========= -->
+    <div id="tab-tarefa" class="tab-pane">
+        <div class="badge" style="background: var(--azul-profundo);">Documento orientador · fevereiro 2026</div>
+        <p style="font-size: 1.2rem; margin: 1.2rem 0 0 0; background: white; padding: 1.5rem; border-radius: 20px; border: 1px solid var(--cinza-borda);">
+            <strong>Tarefa SP 2026</strong> – nova organização por agrupamento de aulas, questões discursivas com assistente de correção e gamificação via Copa da Escola.
+            <span style="display: block; margin-top: 0.8rem; font-size: 0.95rem; color: var(--azul-profundo);">📚 <a href="https://drive.google.com/file/d/1x_8ga0wvZqWV52Fxrlh8beP8cioCdNvv/view?usp=drive_link" class="link-documento">seduc.sp.gov.br/tarefasp</a></span>
+        </p>
+
+        <h2>⸻ O que muda em 2026</h2>
+        <div class="card-grid">
+            <div class="card card-azul"><h3>📌 Agrupamento de aulas</h3><p>Uma tarefa para um conjunto de aulas (não mais por aula). Redução da fragmentação, mais qualidade e profundidade.</p></div>
+            <div class="card card-azul"><h3>🧩 6 questões em 3 blocos</h3><p>Introdução (vídeo + 2Q), Construção (texto‑base + 2Q), Superação (2Q, sendo 1 discursiva).</p></div>
+            <div class="card card-azul"><h3>🤖 Discursiva com IA</h3><p>Assistente de correção com feedback automático; melhorias para evitar cola e respostas inadequadas.</p></div>
+        </div>
+
+        <h2>⸻ Agrupamento na prática</h2>
+        <div class="card">
+            <p>A tarefa é liberada ao registrar a última aula do grupo. Exemplo: <strong>“Juros Simples vs Compostos - Parte 1 e 2”</strong> → tarefa única após registro da parte 2. Prazo de 3 dias.</p>
+        </div>
+
+        <h2>⸻ Escopo de aplicação (Formação Geral Básica)</h2>
+        <div class="table-responsive">
+            <table><tr><th>Área</th><th>Componentes</th><th>Anos/Séries</th></tr>
+            <tr><td>Linguagens</td><td>Arte, Inglês, Língua Portuguesa</td><td>6º ao 3º EM</td></tr>
+            <tr><td>Matemática</td><td>Matemática, Educação Financeira</td><td>6º ao 3º EM</td></tr>
+            <tr><td>Ciências Humanas</td><td>História, Geografia, Filosofia, Sociologia</td><td>6º ao 3º EM</td></tr>
+            <tr><td>Ciências da Natureza</td><td>Ciências, Biologia, Química, Física</td><td>6º ao 3º EM</td></tr>
+        </table></div>
+
+        <h2>⸻ Estrutura da tarefa (blocos)</h2>
+        <div class="card-grid">
+            <div class="card"><h3>📽️ Bloco 1 – Introdução</h3><p>Vídeo‑suporte + 2 questões de revisão.</p></div>
+            <div class="card"><h3>📘 Bloco 2 – Construção</h3><p>Texto‑base/imagem/vídeo + 2 questões de aplicação.</p></div>
+            <div class="card"><h3>🚀 Bloco 3 – Superação</h3><p>2 questões de sistematização (uma discursiva obrigatória).</p></div>
+        </div>
+
+        <h3>✍️ Questões Discursivas com Assistente de Correção</h3>
+        <div class="callout">
+            <p>Após a entrega, a resposta vai para fila de correção. O assistente compara com a resposta esperada e devolve: correta, parcialmente correta ou incorreta, com explicação. Melhorias contra cola e feedbacks automáticos.</p>
+        </div>
+
+        <h2>⸻ Tarefas Especiais 2026</h2>
+        <div class="table-responsive">
+            <table><tr><th>Semestre</th><th>Bimestre</th><th>Tarefa</th><th>Componentes</th></tr>
+            <tr><td>1º</td><td>1º e 2º</td><td>Revisão Prova Paulista</td><td>Linguagens, Matemática, CH, CN</td></tr>
+            <tr><td>2º</td><td>3º</td><td>Foco no SARESP</td><td>Linguagens, Matemática, CH, CN</td></tr>
+            <tr><td>2º</td><td>4º</td><td>Foco na Recuperação</td><td>Linguagens, Matemática, CH, CN</td></tr>
+        </table></div>
+
+        <h2>⸻ Painel BI e Relatório Tarefa SP</h2>
+        <div class="card-grid">
+            <div class="card"><h3>📊 Meta BI</h3><p>Verde ≥70% | Amarelo 50-69% | Vermelho ≤49% (cálculo: % realização e % acertos). Atualizado às terças.</p></div>
+            <div class="card"><h3>📈 Relatório na Sala do Futuro</h3><p>Detalhamento por turma, tarefa e questão. Inclui tarefas criadas pelo docente.</p></div>
+        </div>
+
+        <h3>📐 Índice de Qualidade (IQ)</h3>
+        <p>Média entre % realização e % acerto. Meta 2026: Excelente (≥70) nos 1º,2º e 4º bimestres; Bom (50-69) no 3º.</p>
+        <div class="table-responsive">
+            <table><tr><th>IQ (pontos)</th><th>Nível</th><th>Interpretação</th></tr>
+            <tr><td>0-49</td><td>🔴 Baixo</td><td>Engajamento ou compreensão insuficientes</td></tr>
+            <tr><td>50-69</td><td>🟡 Bom</td><td>Cumpre parcialmente / equilíbrio</td></tr>
+            <tr><td>70-100</td><td>🟢 Excelente</td><td>Alto engajamento e domínio</td></tr>
+        </table></div>
+
+        <h2>⸻ Gamificação e Copa da Escola</h2>
+        <p>A Copa da Escola (detalhada na aba específica) utiliza os indicadores de tarefas e frequência. Em 2026, a gamificação estará integrada à competição.</p>
+        <p class="link-documento">👉 <a href="#" class="link-documento" onclick="document.querySelector('[data-tab=copa]').click(); return false;">Ir para Regulamento Copa da Escola</a></p>
+
+        <h2>⸻ Dicas e tutoriais (links úteis)</h2>
+        <div class="checklist">
+            <div class="checklist-item"><span>🔗</span> <a href="#" class="link-documento">Acompanhando Tarefas no Gerenciador (CMSP)</a></div>
+            <div class="checklist-item"><span>🔗</span> <a href="#" class="link-documento">Prorrogando prazo de uma tarefa</a></div>
+            <div class="checklist-item"><span>🔗</span> <a href="#" class="link-documento">Como criar um modelo de tarefa</a></div>
+            <div class="checklist-item"><span>🔗</span> <a href="#" class="link-documento">Vídeo: alterando prazo</a></div>
+        </div>
+        <p>Acesse o <strong>Repositório da EFAPE</strong> para tutoriais em PDF e vídeo.</p>
+
+        <div style="margin: 2rem 0; border-top: 2px dashed var(--cinza-borda); padding-top: 2rem;">
+            <span class="badge" style="background: var(--azul-profundo);">links do documento</span>
+            <a href="#" class="link-documento">📁 Gerenciador de Atividades (CMSP)</a>
+            <a href="#" class="link-documento">📊 Painel BI Tarefa SP</a>
+            <a href="#" class="link-documento">📘 Guia do Currículo Priorizado</a>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>Secretaria da Educação do Estado de São Paulo · Subsecretaria Pedagógica (SUPED)</p>
+        <p>Coordenadoria de Recomposição (CORAP) | Diretoria de Gestão Pedagógica (DIGEP) | Diretoria de Avaliações (DIAVAL)</p>
+        <p>URE - CAIEIRAS | 2026 <a href="#"></a></p>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #aaa;"></p>
+    </div>
+</footer>
+
+<script>
+    const tabs = document.querySelectorAll('.tab-button');
+    const panes = document.querySelectorAll('.tab-pane');
+
+    tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabs.forEach(b => b.classList.remove('active'));
+            panes.forEach(p => p.classList.remove('active-pane'));
+
+            btn.classList.add('active');
+            const tabId = btn.getAttribute('data-tab');
+            document.getElementById(`tab-${tabId}`).classList.add('active-pane');
+        });
+    });
+
+    // Permitir clique no link que leva à aba copa dentro da página tarefa
+    document.querySelectorAll('.link-documento[onclick]').forEach(el => {
+        el.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('[data-tab=copa]').click();
+        });
+    });
+</script>
+
+</body>
+</html>
